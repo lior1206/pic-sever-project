@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  db:
+    container_name: mysql_condb
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: lior1206
+    volumes:
+      - mysql_vol:/var/lib/mysql
+    ports:
+      - 10000:3306
+volumes:
+  mysql_vol:
