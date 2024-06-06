@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.upload-section, .gallery-section {
+    width: 45%;
+}
+
+.upload-section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.upload-section h2 {
+    margin-top: 0;
+}
+
+.upload-section input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.gallery-section {
+    background-color: #f0f0f0;
+    background-color: rgba(195, 3, 195, 0);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.gallery-section h2 {
+    margin-top: 0;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* .box{
+    background-color: blue;
+} */

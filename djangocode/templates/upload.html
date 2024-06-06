@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Upload</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <h1>User Upload Page</h1>
+    <h2>{{ username }}'s Uploaded Photos</h2>
+    <div class="container">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="box">
+                    <h2>Upload Photo</h2>
+                    <form action="{% url 'user_upload' username=username %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Upload</button>
+                    </form>
+                </div>
+            </div>
+            <div class="wrap-login100">
+                <div class="box">
+                    <h2>My Photos</h2>
+                    <div class="photo-gallery">
+                        {% if user_photos %}
+                            {% for photo in user_photos %}
+                                <img src="{{ photo.photo.url }}" alt="Uploaded Photo" style="max-width: 200px;">
+                            {% endfor %}
+                        {% else %}
+                            <p>No photos uploaded yet.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
