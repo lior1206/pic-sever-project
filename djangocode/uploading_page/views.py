@@ -22,12 +22,12 @@ def home(request):
 
 @login_required
 def user_upload(request, username):
-    user = request.user  # Use the logged-in user directly
+    user = request.user 
     if request.method == "POST":
         form = PhotoUploadForm(request.POST, request.FILES)
         if form.is_valid():
             uploaded_photo = form.save(commit=False)
-            uploaded_photo.user = user  # Associate the logged-in user
+            uploaded_photo.user = user  
             uploaded_photo.save()
             messages.success(request, "Photo uploaded successfully!")
             return redirect('user_upload', username=user.username)
