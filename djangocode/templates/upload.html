@@ -7,16 +7,59 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'index2.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        /* Additional responsive styling */
+        .container {
+            padding: 15px;
+        }
+        .wrap-login100 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .box {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .photo-gallery img {
+            max-width: 40%;
+            height: auto;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-<body>
-    <h1>User Upload Page</h1>
-    <h2>{{ request.user.username }}'s Uploaded Photos</h2>
+<body class="main-background">
     <div class="container">
+        <h1>User Upload Page</h1>
+        <h2>{{ request.user.username }}'s Uploaded Photos</h2>
         <div class="container-login100">
             <div class="wrap-login100">
                 <div class="box">
                     <h2>Upload Photo</h2>
-                    <form action="{% url 'user_upload' username=user.username %}" method="post" enctype="multipart/form-data">
+                    <form action="{% url 'user_upload' username=request.user.username %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.non_field_errors }}
                         <div class="form-group">
@@ -36,7 +79,7 @@
                     <div class="photo-gallery">
                         {% if user_photos %}
                             {% for photo in user_photos %}
-                                <img src="{{ photo.photo.url }}" alt="Uploaded Photo" style="max-width: 200px;">
+                                <img src="{{ photo.photo.url }}" alt="Uploaded Photo">
                             {% endfor %}
                         {% else %}
                             <p>No photos uploaded yet.</p>
