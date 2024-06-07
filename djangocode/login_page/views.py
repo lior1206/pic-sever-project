@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-
+#this file control the views that the app will present to the html file and acording to the html file the user will be presented with what the page is detected to.
 def home(request):
     if request.method == "POST":
         username = request.POST.get("username")

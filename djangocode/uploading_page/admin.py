@@ -1,8 +1,7 @@
 from django.contrib import admin
 from .models import UploadedPhoto
-# Register your models here.
 from django import forms
-
+#this file job is to give the super users the filds to control in the /admin control page .
 class PhotoUploadForm(forms.Form):
     photo = forms.ImageField()
     
