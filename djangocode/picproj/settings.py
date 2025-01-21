@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login_page',
     'uploading_page',
+    'registrationpage',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'lior1206',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '10000',
+        'PORT': '3306',
     }
 }
 
@@ -136,5 +137,3 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-

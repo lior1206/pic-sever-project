@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('login_page.urls')),
     path('user_upload/', include('uploading_page.urls')),
     path('admin/', admin.site.urls),
+    path('register/', include('registrationpage.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
 

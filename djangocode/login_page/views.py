@@ -17,7 +17,7 @@ def home(request):
             messages.error(request, "There was an error logging in, please try again")
             return redirect('home')
     else:
-        return render(request, 'registration/index.html', {})
+        return render(request, 'loginpage/index.html', {})
 
 @login_required
 def user_upload(request):
